@@ -30,12 +30,15 @@ class Album extends SourceItf {
 
 		var callback = function (error, response, body) {
 			if (!error && response.statusCode == 200) {
-				var pictureArray = body;
+				var pictureArray = JSON.parse(body);
+
 
 				var album : PictureAlbum = new PictureAlbum(uuid.v1());
 
 				for (var i = 0; i < limit && i < pictureArray.length; i++) {
 					var picJSON = pictureArray[i];
+
+					Logger.debug("Parse picture : "+picJSON);
 
 					var pic : Picture = new Picture(picJSON.mediaId);
 					pic.setTitle(picJSON.displayName);
@@ -71,7 +74,7 @@ class Album extends SourceItf {
 					album.addPicture(pic);
 				}
 
-				this.getSourceNamespaceManager().sendNewInfoToClient(album);
+				self.getSourceNamespaceManager().sendNewInfoToClient(album);
 			} else {
 				Logger.error("Beepeers Album - Obtained following status code : "+response.statusCode+" for URL "+apiURL);
 				Logger.error("Beepeers Album - Obtained following error : "+error);

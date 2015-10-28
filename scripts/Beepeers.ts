@@ -24,6 +24,7 @@ class Beepeers extends SourceServer {
 	 */
 	constructor(listeningPort : number, arguments : Array<string>) {
 		super(listeningPort, arguments);
+		this.addNamespace("Beepeers", BeepeersNamespaceManager);
 	}
 }
 
