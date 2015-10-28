@@ -74,6 +74,9 @@ class Album extends SourceItf {
 					album.addPicture(pic);
 				}
 
+				var totalDuration = infoDuration*album.getPictures().length;
+				album.setDurationToDisplay(totalDuration);
+
 				self.getSourceNamespaceManager().sendNewInfoToClient(album);
 			} else {
 				Logger.error("Beepeers Album - Obtained following status code : "+response.statusCode+" for URL "+apiURL);
