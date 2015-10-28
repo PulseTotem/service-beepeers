@@ -45,5 +45,5 @@ var _BeepeersListeningPort : number = process.env.PORT || 6016;
  */
 var _BeepeersArguments : Array<string> = process.argv;
 
-var serverInstance = new Photobox(_BeepeersListeningPort, _BeepeersArguments);
+var serverInstance = new Beepeers(_BeepeersListeningPort, _BeepeersArguments);
 serverInstance.run();
