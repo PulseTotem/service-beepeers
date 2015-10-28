@@ -4,6 +4,7 @@
 
 /// <reference path="../../t6s-core/core-backend/scripts/server/SourceItf.ts" />
 /// <reference path="../../t6s-core/core-backend/t6s-core/core/scripts/infotype/PictureAlbum.ts" />
+/// <reference path="../BeepeersNamespaceManager.ts" />
 
 var request = require('request');
 
